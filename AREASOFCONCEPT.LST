@@ -1,0 +1,90 @@
+SQL> SET PAGES 200 LINES 200
+SQL> SELECT SAL*12 AS "ANNUAL SALARY"
+  2  FROM EMP;
+
+ANNUAL SALARY                                                                                                                                                                                           
+-------------                                                                                                                                                                                           
+         9600                                                                                                                                                                                           
+        19200                                                                                                                                                                                           
+        15000                                                                                                                                                                                           
+        35700                                                                                                                                                                                           
+        15000                                                                                                                                                                                           
+        34200                                                                                                                                                                                           
+        29400                                                                                                                                                                                           
+        36000                                                                                                                                                                                           
+        60000                                                                                                                                                                                           
+        18000                                                                                                                                                                                           
+        13200                                                                                                                                                                                           
+        11400                                                                                                                                                                                           
+        36000                                                                                                                                                                                           
+        15600                                                                                                                                                                                           
+
+14 rows selected.
+
+SQL> SELECT SAL*12 "ANNIUAL SALARY"
+  2  FROM EMP;
+
+ANNIUAL SALARY                                                                                                                                                                                          
+--------------                                                                                                                                                                                          
+          9600                                                                                                                                                                                          
+         19200                                                                                                                                                                                          
+         15000                                                                                                                                                                                          
+         35700                                                                                                                                                                                          
+         15000                                                                                                                                                                                          
+         34200                                                                                                                                                                                          
+         29400                                                                                                                                                                                          
+         36000                                                                                                                                                                                          
+         60000                                                                                                                                                                                          
+         18000                                                                                                                                                                                          
+         13200                                                                                                                                                                                          
+         11400                                                                                                                                                                                          
+         36000                                                                                                                                                                                          
+         15600                                                                                                                                                                                          
+
+14 rows selected.
+
+SQL> SELECT SAL*12 AS ANNUALSALARY
+  2  FROM EMP;
+
+ANNUALSALARY                                                                                                                                                                                            
+------------                                                                                                                                                                                            
+        9600                                                                                                                                                                                            
+       19200                                                                                                                                                                                            
+       15000                                                                                                                                                                                            
+       35700                                                                                                                                                                                            
+       15000                                                                                                                                                                                            
+       34200                                                                                                                                                                                            
+       29400                                                                                                                                                                                            
+       36000                                                                                                                                                                                            
+       60000                                                                                                                                                                                            
+       18000                                                                                                                                                                                            
+       13200                                                                                                                                                                                            
+       11400                                                                                                                                                                                            
+       36000                                                                                                                                                                                            
+       15600                                                                                                                                                                                            
+
+14 rows selected.
+
+SQL> SELECT SAL*12 ANNUAL_SALARY
+  2  FROM EMP;
+
+ANNUAL_SALARY                                                                                                                                                                                           
+-------------                                                                                                                                                                                           
+         9600                                                                                                                                                                                           
+        19200                                                                                                                                                                                           
+        15000                                                                                                                                                                                           
+        35700                                                                                                                                                                                           
+        15000                                                                                                                                                                                           
+        34200                                                                                                                                                                                           
+        29400                                                                                                                                                                                           
+        36000                                                                                                                                                                                           
+        60000                                                                                                                                                                                           
+        18000                                                                                                                                                                                           
+        13200                                                                                                                                                                                           
+        11400                                                                                                                                                                                           
+        36000                                                                                                                                                                                           
+        15600                                                                                                                                                                                           
+
+14 rows selected.
+
+SQL> SPOOL OFF
