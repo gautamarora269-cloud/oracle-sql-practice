@@ -1,0 +1,53 @@
+USE SCOTT;
+
+SELECT * FROM EMP;
+
+# Display department-wise total salary.
+SELECT DEPTNO,SUM(SAL)
+FROM EMP
+GROUP BY DEPTNO;
+
+# Display department-wise average salary.
+SELECT DEPTNO,AVG(SAL)
+FROM EMP
+GROUP BY DEPTNO;
+
+# WAQTD TOTAL NUMBER OF EMP WORKING IN EACH DEPARTMENT 
+SELECT COUNT(*)
+FROM EMP
+GROUP BY DEPTNO;
+
+# Display job-wise maximum salary.
+SELECT JOB,MAX(SAL)
+FROM EMP
+GROUP BY JOB;
+
+# Display job-wise total salary.
+SELECT JOB,SUM(SAL)
+FROM EMP
+GROUP BY JOB;
+
+# WAQTD TOTAL NUMBER OF EMP WORKING IN EACH JOB
+SELECT JOB ,COUNT(*)
+FROM EMP
+GROUP BY JOB;
+
+# Display number of employees in each department.
+SELECT DEPTNO,COUNT(*)
+FROM EMP
+GROUP BY DEPTNO;
+
+# ALL TABLE 
+SELECT *
+FROM EMP;
+
+# Display number of employees for each job.
+SELECT JOB,COUNT(*)
+FROM EMP
+GROUP BY JOB;
+
+# 
+
+
+
+
