@@ -1,0 +1,220 @@
+USE SCOTT;
+
+SELECT DNAME,LOC,DEPTNO
+FROM DEPT 
+WHERE DEPTNO IN (SELECT DEPTNO FROM EMP WHERE ENAME LIKE '%R');
+
+SELECT DNAME 
+FROM DEPT 
+WHERE DEPTNO = (SELECT DEPTNO
+				FROM EMP
+                WHERE JOB = 'PRESIDENT');
+                
+SELECT ENAME 
+FROM EMP
+WHERE DEPTNO = (SELECT DEPTNO
+				FROM DEPT 
+                WHERE DNAME = 'ACCOUNTING DEPARTMENT');
+                
+	
+SELECT ENAME,SAL
+FROM EMP
+WHERE DEPTNO = (SELECT DEPTNO
+				FROM DEPT
+                WHERE LOC = 'CHICAGO');
+     
+SELECT *
+FROM EMP
+WHERE DEPTNO = (SELECT DEPTNO
+				FROM DEPT 
+                WHERE DNAME = 'SALES');
+
+SELECT *
+FROM EMP
+WHERE DEPTNO = (SELECT DEPTNO
+				FROM DEPT
+                WHERE LOC = 'NEW YORK');
+ 
+SELECT ENAME 
+FROM EMP
+WHERE SAL > (SELECT SAL
+			 FROM EMP
+             WHERE ENAME = 'SCOTT')
+	 AND 
+	 DEPTNO = (SELECT DEPTNO
+			   FROM DEPT 
+               WHERE DNAME = 'ACCOUNTING');
+
+SELECT *
+FROM EMP
+WHERE JOB = 'MANAGER'
+AND 
+   DEPTNO = (SELECT DEPTNO
+			 FROM DEPT 
+             WHERE LOC = 'CHICAGO');
+
+SELECT ENAME,SAL
+FROM EMP
+WHERE SAL > (SELECT SAL 
+			 FROM EMP
+             WHERE ENAME = 'KING')
+AND 
+	DEPTNO = (SELECT DEPTNO
+			  FROM DEPT 
+              WHERE DNAME = 'ACCOUNTING');
+
+SELECT *
+FROM EMP
+WHERE JOB = 'SALESMAN'
+AND
+    DEPTNO = (SELECT DEPTNO
+			  FROM DEPT 
+              WHERE ENAME = 'DEPARTMENT SALES');
+
+SELECT ENAME,SAL,JOB,HIREDATE 
+FROM EMP
+WHERE DEPTNO = (SELECT DEPTNO 
+				FROM DEPT 
+                WHERE ENAME = 'OPERATIONS DEPARTMENT')
+                AND 
+	 HIREDATE = (SELECT HIREDATE 
+                 FROM EMP
+                 WHERE ENAME = 'KING');
+
+SELECT *
+FROM EMP
+WHERE DEPTNO IN (SELECT DEPTNO
+				 FROM DEPT
+                 WHERE DNAME LIKE '%S');
+USE SCOTT;
+SELECT MIN(SAL) 
+FROM EMP
+WHERE SAL > (SELECT MIN(SAL)
+			 FROM EMP);
+
+
+SELECT MAX(SAL)
+FROM EMP
+WHERE SAL < (SELECT MAX(SAL)
+				FROM EMP
+				WHERE SAL <
+			(SELECT MAX(SAL)
+				FROM EMP
+				WHERE SAL <
+			(SELECT MAX(SAL)
+				FROM EMP
+				WHERE SAL <
+			(SELECT MAX(SAL)
+				FROM EMP
+				WHERE SAL))));
+
+
+SELECT ENAME
+FROM EMP
+WHERE SAL < (SELECT MAX(SAL)
+				FROM EMP
+				WHERE SAL < 
+			(SELECT MAX(SAL)
+				FROM EMP
+				WHERE SAL <
+			(SELECT MAX(SAL)
+				FROM EMP
+				WHERE SAL < (
+            SELECT MAX(SAL) FROM EMP))));
+
+SELECT EMPNO
+FROM EMP
+WHERE SAL = (SELECT MAX(SAL)
+				FROM EMP
+                WHERE SAL < 
+			(SELECT MAX(SAL)
+				FROM EMP
+			));
+
+ SELECT ENAME
+ FROM EMP 
+ WHERE SAL < (SELECT MAX(SAL)
+			 FROM EMP
+             WHERE SAL <
+             (SELECT MAX(SAL)
+			 FROM EMP));
+             
+             
+USE SCOTT;
+SELECT EMPNO
+FROM EMP
+WHERE SAL = (SELECT MAX(SAL)
+			FROM EMP
+			WHERE SAL <
+            (SELECT MAX(SAL)
+			FROM EMP));
+                
+# 1. WAQTD 1st Minimum Salary
+SELECT MIN(SAL)
+FROM EMP;
+            
+# 2. WAQTD 2nd Minimum Salary (Nested Query)
+SELECT MIN(SAL)
+FROM EMP
+WHERE SAL > (SELECT MIN(SAL)
+           FROM EMP);            
+            
+# WAQTD 2nd Maximum Salary (Nested Query)
+SELECT MAX(SAL)
+FROM EMP
+WHERE SAL < (SELECT MAX(SAL)
+				FROM EMP);
+
+# 5. WAQTD EMPNO of Employee Earning 2nd Maximum Salary
+SELECT EMPNO
+FROM EMP
+WHERE SAL > (SELECT MAX(SAL)
+			FROM EMP
+            WHERE SAL > 
+            (SELECT MAX(SAL)
+			FROM EMP));
+
+# 6. WAQTD Name of Employee Earning 2nd Maximum Salary
+SELECT ENAME 
+FROM EMP
+WHERE SAL = ( SELECT MAX(SAL)
+			  FROM EMP
+              WHERE SAL < 
+			( SELECT MAX(SAL)
+             FROM EMP));
+
+#7. WAQTD Department Name of Employee Getting 2nd Maximum Salary
+SELECT ENAME
+FROM EMP
+WHERE SAL < (
+    SELECT MAX(SAL)
+    FROM EMP
+    WHERE SAL < (
+        SELECT MAX(SAL)
+        FROM EMP
+        WHERE SAL < (
+            SELECT MAX(SAL) FROM EMP
+        )
+    )
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+            
+            
+            
